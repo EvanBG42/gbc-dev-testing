@@ -1,4 +1,4 @@
-# Gameboy / Color Development Testing 
+# Game Boy / Color Development Testing 
 This is a repo for testing and learning Game Boy / Color development
 
 ## Resources
