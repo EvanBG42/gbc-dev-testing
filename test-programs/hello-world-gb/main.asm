@@ -42,6 +42,8 @@ Start:
 	or c
 	jr nz, .copyFont
 
+	; TODO: second row starts at 9832h ?
+	; 	could add loop to check current loc
 	ld hl, $9800 ; Print string @ top left
 	ld de, HelloWorldStr
 
@@ -80,5 +82,5 @@ FontTilesEnd:
 SECTION "Hello World string", ROM0
 
 HelloWorldStr:
-	db "It's ya boi, uh, skinny penis.", 0
+	db "how do I second line", 0
 
