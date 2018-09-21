@@ -5,12 +5,12 @@
 INCLUDE "gbhw.inc" ; Hardware defines
 INCLUDE "ibmpc1.inc" ; Font macro
 
-SECTION "Org $100", HOME[$100]	; $100 is code execution starting addr.
+SECTION "Org $100", ROM0[$100]	; $100 is code execution starting addr.
 
 nop
 jp	begin
 
-ROM_HEADER	ROM_NOMBC, ROM_SIZE_32KBYTE, RAM_SIZE_0KBYTE
+;ROM_HEADER	ROM_NOMBC, ROM_SIZE_32KBYTE, RAM_SIZE_0KBYTE
 
 INCLUDE "memory.asm"
 
