@@ -42,8 +42,6 @@ Start:
 	or c
 	jr nz, .copyFont
 
-	; TODO: second row starts at $9820 ?
-	; 	could add loop to check current loc
 	ld hl, $9800 ; Print string @ top left
 	ld de, HelloWorldStr
 
@@ -53,16 +51,21 @@ Start:
 	inc de
 	; check if byte just copied == $0A
 	cp $0A
-	;TODO: if true, move to start of current line
-	ld a, %11100000
-	and l
-	ld l, a
-	; move down line
-	ld de, 32
-	add hl, de
+	jr z, .newLine ; If true, jump to new line fcn
 	
 	and a ; check if byte just copied == 0
 	jr nz, .copyString ; if not, loop this
+
+.newLine ; Moves to start of next line
+	; Move to start of current line	
+	ld a, %11100000
+	and l
+	ld l, a
+	
+	; move down line
+	ld de, 32
+	add hl, de
+	jp .copyString
 
 .displayLines ; diplays lines
 	; Init display regs
@@ -93,5 +96,6 @@ FontTilesEnd:
 SECTION "Hello World string", ROM0
 
 HelloWorldStr:
-	db "how do I second line", 0
+	db "This is an example", $0A
+	db "of a linewrap.", 0 
 
