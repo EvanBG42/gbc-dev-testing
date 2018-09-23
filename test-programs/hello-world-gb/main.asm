@@ -83,4 +83,6 @@ SECTION "Hello World string", ROM0
 
 HelloWorldStr:
 	db "how do I second line", 0
+	db "is this it?", 0 ; it isn't
+	db "I hope so.", 0
 
