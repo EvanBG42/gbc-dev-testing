@@ -102,7 +102,5 @@ SECTION "Hello World string", ROM0
 HelloWorldStr:
 	db "This is an example", $0A
 	db "of a linewrap.", $0A, $0A
-	db "0123456789ABCDEF012345", $0A, $0A
-	db "Blinkhorn can suck", $0A
-	db "my nuts.", 0 
+	db "0123456789ABCDEF012345", $0
 
